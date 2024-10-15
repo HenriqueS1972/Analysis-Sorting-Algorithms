@@ -204,7 +204,7 @@ void executeMergeSort() {
         long long comparisons = 0;
         long long swaps = 0;
 
-        // Gera dados do melhor caso
+        // Gera dados para vetor ordenado
         generateArrayInOrder(arr, size);
         start = clock();
         mergeSort(arr, 0, size - 1, &comparisons, &swaps);
@@ -213,7 +213,7 @@ void executeMergeSort() {
 
         fprintf(fp2, "%d,%.6f,%lld,%lld\n", size, cpu_time_used, comparisons, swaps);
 
-        // Gera dados do pior caso
+        // Gera dados para vetor inversamente ordenado
         comparisons = 0;
         swaps = 0;
         generateArrayInReverseOrder(arr, size);
@@ -287,7 +287,7 @@ void executeHeapSort() {
         long long comparisons = 0;
         long long swaps = 0;
 
-        // Gera dados do melhor caso
+        // Gera dados para vetor ordenado
         generateArrayInOrder(arr, size);
         start = clock();
         heapSort(arr, size, &comparisons, &swaps);
@@ -296,7 +296,7 @@ void executeHeapSort() {
 
         fprintf(fp2, "%d,%.6f,%lld,%lld\n", size, cpu_time_used, comparisons, swaps);
 
-        // Gera dados do pior caso
+        // Gera dados para vetor inversamente ordenado
         comparisons = 0;
         swaps = 0;
         generateArrayInReverseOrder(arr, size);
