@@ -1,0 +1,32 @@
+# Compiler
+CC = gcc
+
+# Compiler flags
+CFLAGS = -Wall -Wextra -std=c11
+
+# Source files
+SRCS = main.c executor.c sortingAlgorithms.c arrayUtils.c
+
+# Header files
+HEADERS = sortingAlgorithms.h arrayUtils.h executor.h
+
+# Output executable
+TARGET = sort
+
+# Default target
+all: $(TARGET)
+
+# Link object files to create the executable
+$(TARGET): $(SRCS) $(HEADERS)
+    $(CC) $(CFLAGS) -o $(TARGET) $(SRCS)
+
+# Clean up build files
+clean:
+    rm -f $(TARGET) *.o
+
+# Run the program
+run: $(TARGET)
+    ./$(TARGET)
+
+# Phony targets
+.PHONY: all clean run

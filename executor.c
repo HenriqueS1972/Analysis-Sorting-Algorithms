@@ -9,13 +9,6 @@ int sizes[] = {10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 10
 int numSizes = 10;
 int numTrials = 10;
 
-/* // Função para copiar um vetor para outro
-void copyArray(int source[], int destination[], int size) {
-    for (int i = 0; i < size; i++) {
-        destination[i] = source[i];
-    }
-} */
-
 void executeInsertionSort() {
     // Variáveis para medir o tempo de execução
     clock_t start, end;
@@ -49,10 +42,10 @@ void executeInsertionSort() {
     for (int sizeIdx = 0; sizeIdx < numSizes; sizeIdx++) {
         int size = sizes[sizeIdx];
         int *arr = (int *)malloc(size * sizeof(int));
-        // int *arrCopy = (int *)malloc(size * sizeof(int));
         long long comparisons;
         long long swaps;
 
+        // Gera dados do melhor caso
         generateArrayInOrder(arr, size);
         start = clock();
         insertionSort(arr, size, &comparisons, &swaps);
@@ -61,6 +54,7 @@ void executeInsertionSort() {
 
         fprintf(fp2, "%d,%.6f,%lld,%lld\n", size, cpu_time_used, comparisons, swaps);
 
+        // Gera dados do pior caso
         generateArrayInReverseOrder(arr, size);
         start = clock();
         insertionSort(arr, size, &comparisons, &swaps);
@@ -74,9 +68,6 @@ void executeInsertionSort() {
             // Gera um vetor aleatório
             generateRandomArray(arr, size);
             
-            /* // Copy the array to avoid regenerating in each trial
-            copyArray(arr, arrCopy, size); */
-            
             // Execução do algoritmo de ordenação Insertion Sort
             start = clock();
             insertionSort(arr, size, &comparisons, &swaps);
@@ -88,7 +79,6 @@ void executeInsertionSort() {
         }
         
         free(arr);
-        // free(arrCopy);
     }
 
     fclose(fp1);
@@ -131,10 +121,10 @@ void executeSelectionSort() {
     for (int sizeIdx = 0; sizeIdx < numSizes; sizeIdx++) {
         int size = sizes[sizeIdx];
         int *arr = (int *)malloc(size * sizeof(int));
-        // int *arrCopy = (int *)malloc(size * sizeof(int));
         long long comparisons;
         long long swaps;
 
+        // Gera dados do melhor caso
         generateArrayInOrder(arr, size);
         start = clock();
         selectionSort(arr, size, &comparisons, &swaps);
@@ -143,6 +133,7 @@ void executeSelectionSort() {
 
         fprintf(fp2, "%d,%.6f,%lld,%lld\n", size, cpu_time_used, comparisons, swaps);
 
+        // Gera dados do pior caso
         generateArrayInReverseOrder(arr, size);
         start = clock();
         selectionSort(arr, size, &comparisons, &swaps);
@@ -156,9 +147,6 @@ void executeSelectionSort() {
             // Gera um vetor aleatório
             generateRandomArray(arr, size);
             
-            /* // Copy the array to avoid regenerating in each trial
-            copyArray(arr, arrCopy, size); */
-            
             // Execução do algoritmo de ordenação Selection Sort
             start = clock();
             selectionSort(arr, size, &comparisons, &swaps);
@@ -170,7 +158,6 @@ void executeSelectionSort() {
         }
         
         free(arr);
-        // free(arrCopy);
     }
 
     fclose(fp1);
@@ -214,10 +201,10 @@ void executeMergeSort() {
     for (int sizeIdx = 0; sizeIdx < numSizes; sizeIdx++) {
         int size = sizes[sizeIdx];
         int *arr = (int *)malloc(size * sizeof(int));
-        // int *arrCopy = (int *)malloc(size * sizeof(int));
         long long comparisons = 0;
         long long swaps = 0;
 
+        // Gera dados do melhor caso
         generateArrayInOrder(arr, size);
         start = clock();
         mergeSort(arr, 0, size - 1, &comparisons, &swaps);
@@ -226,6 +213,7 @@ void executeMergeSort() {
 
         fprintf(fp2, "%d,%.6f,%lld,%lld\n", size, cpu_time_used, comparisons, swaps);
 
+        // Gera dados do pior caso
         comparisons = 0;
         swaps = 0;
         generateArrayInReverseOrder(arr, size);
@@ -241,10 +229,7 @@ void executeMergeSort() {
             // Gera um vetor aleatório
             generateRandomArray(arr, size);
             
-            /* // Copy the array to avoid regenerating in each trial
-            copyArray(arr, arrCopy, size); */
-            
-            // Execução do algoritmo de ordenação Selection Sort
+            // Execução do algoritmo de ordenação Merge Sort
             comparisons = 0;
             swaps = 0;
             start = clock();
@@ -257,7 +242,6 @@ void executeMergeSort() {
         }
         
         free(arr);
-        // free(arrCopy);
     }
 
     fclose(fp1);
@@ -300,10 +284,10 @@ void executeHeapSort() {
     for (int sizeIdx = 0; sizeIdx < numSizes; sizeIdx++) {
         int size = sizes[sizeIdx];
         int *arr = (int *)malloc(size * sizeof(int));
-        // int *arrCopy = (int *)malloc(size * sizeof(int));
         long long comparisons = 0;
         long long swaps = 0;
 
+        // Gera dados do melhor caso
         generateArrayInOrder(arr, size);
         start = clock();
         heapSort(arr, size, &comparisons, &swaps);
@@ -312,6 +296,7 @@ void executeHeapSort() {
 
         fprintf(fp2, "%d,%.6f,%lld,%lld\n", size, cpu_time_used, comparisons, swaps);
 
+        // Gera dados do pior caso
         comparisons = 0;
         swaps = 0;
         generateArrayInReverseOrder(arr, size);
@@ -327,10 +312,7 @@ void executeHeapSort() {
             // Gera um vetor aleatório
             generateRandomArray(arr, size);
             
-            /* // Copy the array to avoid regenerating in each trial
-            copyArray(arr, arrCopy, size); */
-            
-            // Execução do algoritmo de ordenação Selection Sort
+            // Execução do algoritmo de ordenação Heap Sort
             comparisons = 0;
             swaps = 0;
             start = clock();
@@ -343,7 +325,6 @@ void executeHeapSort() {
         }
         
         free(arr);
-        // free(arrCopy);
     }
 
     fclose(fp1);
@@ -386,10 +367,10 @@ void executeQuickSort() {
     for (int sizeIdx = 0; sizeIdx < numSizes; sizeIdx++) {
         int size = sizes[sizeIdx];
         int *arr = (int *)malloc(size * sizeof(int));
-        // int *arrCopy = (int *)malloc(size * sizeof(int));
         long long comparisons = 0;
         long long swaps = 0;
 
+        // Gera dados do melhor caso
         generateArrayInReverseOrder(arr, size);
         start = clock();
         quickSort(arr, 0, size - 1, &comparisons, &swaps);
@@ -398,6 +379,7 @@ void executeQuickSort() {
 
         fprintf(fp2, "%d,%.6f,%lld,%lld\n", size, cpu_time_used, comparisons, swaps);
 
+        // Gera dados do pior caso
         comparisons = 0;
         swaps = 0;
         generateArrayInReverseOrder(arr, size);
@@ -413,10 +395,7 @@ void executeQuickSort() {
             // Gera um vetor aleatório
             generateRandomArray(arr, size);
             
-            /* // Copy the array to avoid regenerating in each trial
-            copyArray(arr, arrCopy, size); */
-            
-            // Execução do algoritmo de ordenação Selection Sort
+            // Execução do algoritmo de ordenação Quick Sort
             comparisons = 0;
             swaps = 0;
             start = clock();
@@ -429,7 +408,6 @@ void executeQuickSort() {
         }
         
         free(arr);
-        // free(arrCopy);
     }
 
     fclose(fp1);

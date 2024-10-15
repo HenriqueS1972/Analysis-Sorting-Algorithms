@@ -7,12 +7,14 @@ void generateRandomArray(int arr[], int size) {
     }
 }
 
+// Função para gerar um vetor ordenado de forma crescente
 void generateArrayInOrder(int arr[], int size) {
     for (int i = 0; i < size; i++) {
         arr[i] = i;
     }
 }
 
+// Função para gerar um vetor ordenado de forma decrescente
 void generateArrayInReverseOrder(int arr[], int size) {
     for (int i = 0; i < size; i++) {
         arr[i] = size - i;
