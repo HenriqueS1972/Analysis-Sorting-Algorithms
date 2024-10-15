@@ -371,7 +371,7 @@ void executeQuickSort() {
         long long swaps = 0;
 
         // Gera dados do melhor caso
-        generateArrayInReverseOrder(arr, size);
+        generateArrayInOrder(arr, size);
         start = clock();
         quickSort(arr, 0, size - 1, &comparisons, &swaps);
         end = clock();

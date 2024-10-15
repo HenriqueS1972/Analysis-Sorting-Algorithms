@@ -31,7 +31,7 @@ void insertionSort(int arr[], int n, long long *comparisons, long long *swaps) {
 }
 
 void selectionSort(int arr[], int n, long long *comparisons, long long *swaps) {
-    int i, j, minIdx, temp;
+    int i, j, minIdx;
     *comparisons = 0;
     *swaps = 0;
     

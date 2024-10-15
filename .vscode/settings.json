@@ -59,6 +59,7 @@
   "files.associations": {
     "sortingalgorithms.h": "c",
     "stdio.h": "c",
-    "stdlib.h": "c"
+    "stdlib.h": "c",
+    "arrayutils.h": "c"
   }
 }
