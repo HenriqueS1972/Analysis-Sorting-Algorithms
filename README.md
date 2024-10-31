@@ -11,6 +11,6 @@ Obs: os arquivos .csv utilizados na apresentação do projeto e no relatório es
 
 Bibliotecas utilizadas:
 
-Python: pandas, matplotlib, nump
+  Python: pandas, matplotlib, nump
 
-C: stdio.h, stdlib.h, time.h
+  C: stdio.h, stdlib.h, time.h
