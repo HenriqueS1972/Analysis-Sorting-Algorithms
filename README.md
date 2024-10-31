@@ -10,5 +10,7 @@ Siga os seguintes passos para executar o programa:
 Obs: os arquivos .csv utilizados na apresentação do projeto e no relatório estão salvos na pasta 'DadosAnalisados'
 
 Bibliotecas utilizadas:
-Python: pandas, matplotlib, numpy
+
+Python: pandas, matplotlib, nump
+
 C: stdio.h, stdlib.h, time.h
